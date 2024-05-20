@@ -20,7 +20,7 @@ create table Film Studio(
 );
 
 create table Film(
-
+  filmId varchar
 );
 
 create table Participant(
