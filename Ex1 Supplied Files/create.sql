@@ -15,3 +15,18 @@ create table oscars(
   actors varchar,
   filmId varchar
 );
+create table Film Studio(
+  name varchar
+);
+
+create table Film(
+
+);
+
+create table Participant(
+
+);
+
+create table Director(
+
+);
