@@ -13,7 +13,7 @@ create table oscars(
   directors varchar,
   authors varchar,
   actors varchar,
-  filmId varchar
+  filmId varcharfff
 );
 create table Film Studio(
   name varchar
