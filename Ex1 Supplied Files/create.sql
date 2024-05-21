@@ -26,6 +26,7 @@ create table Participant(
 
 create table Author(
   name varchar,
+  PRIMARY KEY(name),
   Foreign KEY(name) REFERENCES Participant(name)
 );
 
@@ -38,6 +39,7 @@ create table WrittenBy(
 
 create table Actor(
   name varchar,
+  PRIMARY KEY(name),
   Foreign KEY(name) REFERENCES Participant(name)
 );
 
@@ -50,6 +52,7 @@ create table ActedBy(
 
 create table Director(
   name varchar,
+  PRIMARY KEY(name),
   Foreign KEY(name) REFERENCES Participant(name)
 );
 
