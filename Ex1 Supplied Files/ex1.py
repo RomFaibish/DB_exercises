@@ -64,8 +64,8 @@ def load_participant(main_df, participant_columns, names_columns_csv,name_csv):
 
 def load_simple_csv(main_df ,list_columns_from_zip, names_columns_csv, name_csv:str):
     selected_columns = main_df[list_columns_from_zip]
-    selected_columns.dropna().rename(columns=names_columns_csv)
-    selected_columns.drop_duplicates()
+    selected_columns.dropna().drop_duplicates()
+    selected_columns.rename(columns=names_columns_csv)
     selected_columns.to_csv(name_csv, index=False)
 
 def load_columns_list(main_df ,list_columns_from_zip, names_columns_csv, name_csv:str, columns_to_explode):
