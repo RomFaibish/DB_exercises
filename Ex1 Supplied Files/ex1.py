@@ -21,7 +21,7 @@ def process_file():
   load_directed_by(df)
 
 def load_directed_by(df):
-    selected_columns = df[['Column1', 'Column2']].dropna()
+    selected_columns = df[['Film ID', '']].dropna()
     selected_columns.to_csv('directed_by.csv', index=False)
 
 def get_names():

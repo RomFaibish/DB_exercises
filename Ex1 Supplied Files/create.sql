@@ -8,7 +8,7 @@ create table Film(
   film_name varchar(100),
   imdb_rating float CHECK(imdb_rating >= 0.0 and imdb_rating <= 10.0),
   imdb_votes int CHECK(imdb_votes >= 0),
-  content_rating varchar CHECK(content_rating = "G" or content_rating = "PG" or
+  content_rating varchar(100) CHECK(content_rating = "G" or content_rating = "PG" or
   content_rating = "PG-13" or content_rating = "R" or content_rating = "NR"),
   release_year int CHECK(release_year > 0),
   duration int CHECK(duration > 0),
