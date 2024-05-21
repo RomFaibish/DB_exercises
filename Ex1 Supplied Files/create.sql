@@ -1,5 +1,5 @@
 create table FilmStudio(
-  name varchar,
+  name varchar(100),
   PRIMARY KEY(name)
 );
 
@@ -44,21 +44,21 @@ create table Actor(
 )INHERITS(Participant);
 
 create table ActedBy(
-  film_id varchar,
-  name varchar,
+  film_id varchar(100),
+  name varchar(100),
   PRIMARY KEY(film_id, name),
   Foreign KEY(film_id) REFERENCES Film(film_id),
   Foreign KEY(name) REFERENCES Actor(name)
 );
 
 create table Director(
-  name varchar,
+  name varchar(100),
   PRIMARY KEY(name)
 )INHERITS(Participant);
 
 create table DirectedBy(
-  film_id varchar,
-  name varchar,
+  film_id varchar(100),
+  name varchar(100),
   PRIMARY KEY(film_id, name),
   Foreign KEY(film_id) REFERENCES Film(film_id),
   Foreign KEY(name) REFERENCES Director(name)
