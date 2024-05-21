@@ -18,8 +18,12 @@ def process_file():
   #             oscars_outwriter.writerow(row)
   # oscars_outfile.close()
   df = pd.read_csv('filename.zip')
+  load_directed_by(df)
 
-# return the list of all tables
+def load_directed_by(df):
+    selected_columns = df[['Column1', 'Column2']].dropna()
+    selected_columns.to_csv('directed_by.csv', index=False)
+
 def get_names():
     return ["Actor", "Director", "Author", "Film Studio", "Film"]
 
