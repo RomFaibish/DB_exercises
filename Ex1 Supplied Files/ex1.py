@@ -59,12 +59,12 @@ def load_participant(main_df, participant_columns, names_columns_csv,name_csv):
     df_only_array = main_df[participant_columns]
     df_long = pd.concat([df_only_array['Authors'],df_only_array['Actors'],df_only_array['Directors']])
     df_long.rename("name", inplace=True)
-    df_exploded = df_long.explode('name').reset_index(drop=True).dropna().drop_duplicates()
+    df_exploded = df_long.explode('name').reset_index(drop=True).dropna()
     df_exploded.to_csv(name_csv, index=False)
 
 def load_simple_csv(main_df ,list_columns_from_zip, names_columns_csv, name_csv:str):
     selected_columns = main_df[list_columns_from_zip]
-    selected_columns.dropna().drop_duplicates()
+    selected_columns.dropna()
     selected_columns.rename(columns=names_columns_csv)
     selected_columns.to_csv(name_csv, index=False)
 
