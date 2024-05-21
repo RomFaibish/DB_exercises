@@ -1,4 +1,5 @@
 import csv
+import pandas as pd
 from io import TextIOWrapper
 from zipfile import ZipFile
 
@@ -9,13 +10,14 @@ oscars_outwriter = csv.writer(oscars_outfile, delimiter=",", quoting=csv.QUOTE_M
 
 # process_file goes over all rows in original csv file, and sends each row to process_row()
 def process_file():
-  with ZipFile('oscars.zip') as zf:
-      with zf.open('oscars.csv', 'r') as infile:
-          reader = csv.reader(TextIOWrapper(infile, 'utf-8'))
-          for row in reader:
-              # TO DO splits row into the different csv table files
-              oscars_outwriter.writerow(row)
-  oscars_outfile.close()
+  # with ZipFile('oscars.zip') as zf:
+  #     with zf.open('oscars.csv', 'r') as infile:
+  #         reader = csv.reader(TextIOWrapper(infile, 'utf-8'))
+  #         for row in reader:
+  #             # TO DO splits row into the different csv table files
+  #             oscars_outwriter.writerow(row)
+  # oscars_outfile.close()
+  df = pd.read_csv('filename.zip')
 
 # return the list of all tables
 def get_names():
