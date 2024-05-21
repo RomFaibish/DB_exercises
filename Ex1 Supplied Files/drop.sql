@@ -7,4 +7,4 @@ drop table WrittenBy;
 drop table Actor;
 drop table ActedBy;
 drop table Director;
-drop table table DirectedBy;
+drop table DirectedBy;
