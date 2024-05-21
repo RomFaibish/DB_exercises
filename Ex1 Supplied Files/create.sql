@@ -6,7 +6,6 @@ create table FilmStudio(
 create table Film(
   film_id varchar,
   film_name varchar,
-  content_rating varchar,
   release_year varchar,
   duration varchar,
   genres varchar,
