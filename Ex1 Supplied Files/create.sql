@@ -28,8 +28,8 @@ create table Participant(
 create table Author(
   name varchar(100),
   PRIMARY KEY(name),
-  Foreign KEY(name) REFERENCES Participant(name)
-);
+
+)INHERITS(Participant);
 
 create table WrittenBy(
   film_id varchar(100),
@@ -42,8 +42,7 @@ create table WrittenBy(
 create table Actor(
   name varchar(100),
   PRIMARY KEY(name),
-  Foreign KEY(name) REFERENCES Participant(name)
-);
+)INHERITS(Participant);
 
 create table ActedBy(
   film_id varchar,
@@ -56,8 +55,7 @@ create table ActedBy(
 create table Director(
   name varchar,
   PRIMARY KEY(name),
-  Foreign KEY(name) REFERENCES Participant(name)
-);
+)INHERITS(Participant);
 
 create table DirectedBy(
   film_id varchar,
