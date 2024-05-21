@@ -66,7 +66,7 @@ def load_simple_csv(main_df ,list_columns_from_zip, names_columns_csv, name_csv:
     selected_columns = main_df[list_columns_from_zip]
     if(isinstance(selected_columns,pd.Series)):
         selected_columns = selected_columns.to_frame()
-    selected_columns.dropna().drop_duplicates()
+    selected_columns.reset_index(drop=True).dropna().drop_duplicates()
     selected_columns.rename(columns=names_columns_csv)
     selected_columns.to_csv(name_csv, index=False)
 
