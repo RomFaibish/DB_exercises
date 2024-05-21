@@ -26,7 +26,6 @@ create table Participant(
 );
 
 create table Author(
-  name varchar(100),
   PRIMARY KEY(name)
 )INHERITS(Participant);
 
@@ -39,6 +38,7 @@ create table WrittenBy(
 );
 
 create table Actor(
+  PRIMARY KEY(name)
 )INHERITS(Participant);
 
 create table ActedBy(
@@ -50,7 +50,6 @@ create table ActedBy(
 );
 
 create table Director(
-  name varchar(100),
   PRIMARY KEY(name)
 )INHERITS(Participant);
 
