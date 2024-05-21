@@ -3,7 +3,7 @@ create table FilmStudio(
 );
 
 create table Film(
-  film_id varchar UNIQUE NOT NULL,
+  film_id varchar,
   film_name varchar,
   imdb_rating varchar,
   imdb_votes varchar,
@@ -18,10 +18,12 @@ create table Film(
   oscar_year varchar,
   award varchar,
   Foreign KEY(studio) REFERENCES FilmStudio(name)
+  PRIMARY KEY(film_id)
 );
 
 create table Participant(
-  name varchar UNIQUE NOT NULL
+  name varchar,
+  PRIMARY KEY(name)
 );
 
 create table Author(
@@ -33,7 +35,7 @@ create table WrittenBy(
   film_id varchar,
   name varchar,
   Foreign KEY(film_id) REFERENCES Film(film_id),
-  Foreign KEY(name) REFERENCES Film(name),
+  Foreign KEY(name) REFERENCES Author(name),
 );
 
 create table Actor(
@@ -45,7 +47,7 @@ create table ActedBy(
   film_id varchar,
   name varchar,
   Foreign KEY(film_id) REFERENCES Film(film_id),
-  Foreign KEY(name) REFERENCES Film(name),
+  Foreign KEY(name) REFERENCES Actor(name),
 );
 
 create table Director(
@@ -57,6 +59,6 @@ create table DirectedBy(
   film_id varchar,
   name varchar,
   Foreign KEY(film_id) REFERENCES Film(film_id),
-  Foreign KEY(name) REFERENCES Film(name),
+  Foreign KEY(name) REFERENCES Director(name),
 );
 
