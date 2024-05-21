@@ -21,7 +21,7 @@ def process_file():
 
 # return the list of all tables
 def get_names():
-    return ["oscars"]
+    return ["Actor", "Director", "Author", "Film Studio", "Film"]
 
 def split_list_value(list_value):
     return list_value.split("&&")
