@@ -1,1 +1,10 @@
 drop table oscars;
+drop table FilmStudio;
+drop table Film;
+drop table Participant;
+drop table Author;
+drop table WrittenBy;
+drop table Actor;
+drop table ActedBy;
+drop table Director;
+drop table table DirectedBy;
