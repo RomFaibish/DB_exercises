@@ -43,17 +43,17 @@ def process_file():
 
     load_participant(df, PARTICIPANT_COLUMNS, PARTICIPANT_NAMES_SQL, "Participant.csv")
 
-    load_simple_csv(df, AUTHOR_COLUMNS, AUTHOR_NAMES_SQL, "Author.csv")
+    load_columns_list(df, AUTHOR_COLUMNS, AUTHOR_NAMES_SQL, "Author.csv", 'Authors')
     load_columns_list(df,WRITTEN_BY_COLUMNS, WRITTEN_BY_NAMES_SQL, "WrittenBy.csv", 'Authors')
 
-    load_simple_csv(df, DIRECTOR_COLUMNS, DIRECTOR_NAMES_SQL, "Director.csv")
+    load_columns_list(df, DIRECTOR_COLUMNS, DIRECTOR_NAMES_SQL, "Director.csv", 'Directors')
     load_columns_list(df, DIRECTED_BY_COLUMNS, DIRECTED_BY_NAMES_SQL, "DirectedBy.csv", 'Directors')
 
-    load_simple_csv(df, ACTOR_COLUMNS, ACTOR_NAMES_SQL, "Actor.csv")
+    load_columns_list(df, ACTOR_COLUMNS, ACTOR_NAMES_SQL, "Actor.csv", 'Actors')
     load_columns_list(df, ACTED_BY_COLUMNS, ACTED_BY_NAMES_SQL, "ActedBy.csv", 'Actors')
 
 
-def load_participant(main_df, participant_columns, names_columns_csv,name_csv):
+def load_participant(main_df, participant_columns, names_columns_csv, name_csv):
     for column in participant_columns:
         main_df[column] = main_df[column].str.split('&&')
     df_only_array = main_df[participant_columns]
