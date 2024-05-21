@@ -39,8 +39,6 @@ create table WrittenBy(
 );
 
 create table Actor(
-  name varchar(100),
-  PRIMARY KEY(name)
 )INHERITS(Participant);
 
 create table ActedBy(
