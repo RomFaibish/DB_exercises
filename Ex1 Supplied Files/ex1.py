@@ -39,6 +39,7 @@ def process_file():
     with ZipFile('oscars.zip') as zf:
         with zf.open('oscars.csv', 'r') as infile:
             df = pd.read_csv(infile)
+
     load_simple_csv(df, FILM_STUDIO_COLUMNS, FILM_STUDIO_NAMES_SQL, "FilmStudio.csv")
     load_simple_csv(df, FILM_COLUMNS, FILM_NAMES_SQL, "Film.csv")
 
@@ -55,6 +56,13 @@ def process_file():
 
 
 def load_participant(main_df, participant_columns, name_csv):
+    '''
+    Make all the colums that are list in the zip file into
+    real list instead of values separated by '&&' help us with the db of participant
+    :param main_df: main df to look from of
+    :param participant_columns: what columns to take from main df
+    :param name_csv: name to save to the df
+    '''
     for column in participant_columns:
         main_df[column] = main_df[column].str.split('&&')
     df_only_array = main_df[participant_columns]
@@ -65,18 +73,32 @@ def load_participant(main_df, participant_columns, name_csv):
 
 
 def load_simple_csv(main_df, list_columns_from_zip, names_columns_csv, name_csv: str):
+    '''
+    Load and process simple data columns and save to a CSV file.
+    :param main_df: df to look from
+    :param list_columns_from_zip: colums to look at from the main df
+    :param names_columns_csv: how to rename the columns
+    :param name_csv: how to save the data frame
+    '''
     selected_columns = main_df[list_columns_from_zip].drop_duplicates().dropna()
     selected_columns.rename(columns=names_columns_csv, inplace =True)
     selected_columns.to_csv(name_csv, index=False)
 
 
 def load_columns_list(main_df, list_columns_from_zip, names_columns_csv, name_csv: str, columns_to_explode):
+    ''''
+    Load and process columns with list values, explode them, and save to a CSV file.
+    '''
     df_exploded = main_df.explode(columns_to_explode).reset_index(drop=True)
     load_simple_csv(df_exploded, list_columns_from_zip, names_columns_csv, name_csv)
 
 
 def get_names():
-    return ["Film Studio", "Film", "Participant", "Author", "WrittenBy", "Actor", "ActedBy", "Director", "DirectedBy"]
+    '''
+    As requested in the exercise, list in order
+    :return:
+    '''
+    return ["FilmStudio", "Film", "Participant", "Author", "WrittenBy", "Actor", "ActedBy", "Director", "DirectedBy"]
 
 
 if __name__ == "__main__":
