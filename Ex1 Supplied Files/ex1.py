@@ -63,10 +63,7 @@ def load_participant(main_df, participant_columns, names_columns_csv,name_csv):
     df_exploded.to_csv(name_csv, index=False)
 
 def load_simple_csv(main_df ,list_columns_from_zip, names_columns_csv, name_csv:str):
-    selected_columns = main_df[list_columns_from_zip]
-    if(isinstance(selected_columns,pd.Series)):
-        selected_columns = selected_columns.to_frame()
-    selected_columns.reset_index(drop=True).dropna().drop_duplicates()
+    selected_columns = main_df[list_columns_from_zip].drop_duplicates().dropna()
     selected_columns.rename(columns=names_columns_csv)
     selected_columns.to_csv(name_csv, index=False)
 
