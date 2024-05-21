@@ -17,7 +17,7 @@ def process_file():
   #             # TO DO splits row into the different csv table files
   #             oscars_outwriter.writerow(row)
   # oscars_outfile.close()
-  df = pd.read_csv('filename.zip')
+  df = pd.read_csv('oscars.zip')
   load_directed_by(df)
 
 def load_directed_by(df):
