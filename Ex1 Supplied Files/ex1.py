@@ -13,13 +13,14 @@ def process_file():
       with zf.open('oscars.csv', 'r') as infile:
           reader = csv.reader(TextIOWrapper(infile, 'utf-8'))
           for row in reader:
+
               # TO DO splits row into the different csv table files
               oscars_outwriter.writerow(row)
   oscars_outfile.close()
 
 # return the list of all tables
 def get_names():
-    return ["oscars"]
+    return ["Actor", "Director", "Author", "Film Studio", "Film"]
 
 def split_list_value(list_value):
     return list_value.split("&&")
