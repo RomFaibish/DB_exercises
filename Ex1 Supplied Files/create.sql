@@ -34,7 +34,7 @@ create table WrittenBy(
   film_id varchar,
   name varchar,
   Foreign KEY(film_id) REFERENCES Film(film_id),
-  Foreign KEY(name) REFERENCES Author(name),
+  Foreign KEY(name) REFERENCES Author(name)
 );
 
 create table Actor(
@@ -46,7 +46,7 @@ create table ActedBy(
   film_id varchar,
   name varchar,
   Foreign KEY(film_id) REFERENCES Film(film_id),
-  Foreign KEY(name) REFERENCES Actor(name),
+  Foreign KEY(name) REFERENCES Actor(name)
 );
 
 create table Director(
@@ -58,6 +58,6 @@ create table DirectedBy(
   film_id varchar,
   name varchar,
   Foreign KEY(film_id) REFERENCES Film(film_id),
-  Foreign KEY(name) REFERENCES Director(name),
+  Foreign KEY(name) REFERENCES Director(name)
 );
 
