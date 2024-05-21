@@ -1,5 +1,6 @@
 create table FilmStudio(
-  name varchar
+  name varchar,
+  PRIMARY KEY(name)
 );
 
 create table Film(
@@ -17,7 +18,7 @@ create table Film(
   studio varchar,
   oscar_year varchar,
   award varchar,
-  Foreign KEY(studio) REFERENCES FilmStudio(name)
+  Foreign KEY(studio) REFERENCES FilmStudio(name),
   PRIMARY KEY(film_id)
 );
 
